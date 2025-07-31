@@ -34,12 +34,8 @@ rule suspicious {
         $imgui2 = "ImGui" wide
 
     condition:
-        not for any i in (0..pe.number_of_signatures) : (
-            pe.signatures[i].verify
-        )
-        and
-        uint16(0) == 0x5a4d  // PE header check
-        and
+        not pe.number_of_signatures > 0 and
+        uint16(0) == 0x5a4d and
         (
             (filesize >= 35*1024*1024) and (
                 (2 of ($crypt*)) or
