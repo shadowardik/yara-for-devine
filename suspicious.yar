@@ -1,4 +1,5 @@
 import "math"
+import "pe"
 
 rule suspicious {
     meta:
@@ -33,7 +34,12 @@ rule suspicious {
         $imgui2 = "ImGui" wide
 
     condition:
-        uint16(0) == 0x5a4d and  // PE header check
+        not for any i in (0..pe.number_of_signatures) : (
+            pe.signatures[i].verify
+        )
+        and
+        uint16(0) == 0x5a4d  // PE header check
+        and
         (
             (filesize >= 35*1024*1024) and (
                 (2 of ($crypt*)) or
