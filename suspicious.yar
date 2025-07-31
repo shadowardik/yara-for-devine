@@ -33,12 +33,20 @@ rule suspicious {
         $imgui2 = "ImGui" wide
 
     condition:
-        math.entropy(0, filesize) > 5.5 and
-        uint16(0) == 0x5a4d and
+        uint16(0) == 0x5a4d and  // PE header check
         (
-            (2 of ($inject*)) or
-            (2 of ($suspicious*)) or
-            (2 of ($crypt*)) or
-            (1 of ($imgui*) and (2 of ($inject*) or 2 of ($suspicious*)))
+            (filesize >= 35*1024*1024) and (
+                (2 of ($crypt*)) or
+                (1 of ($imgui*) and (2 of ($inject*) or 2 of ($suspicious*))) or
+                (2 of ($inject*) or 2 of ($suspicious*))
+            )
+            or
+            (filesize < 35*1024*1024) and (
+                math.entropy(0, filesize) > 7 and (
+                    (2 of ($crypt*)) or
+                    (1 of ($imgui*) and (2 of ($inject*) or 2 of ($suspicious*))) or
+                    (2 of ($inject*) or 2 of ($suspicious*))
+                )
+            )
         )
 }
