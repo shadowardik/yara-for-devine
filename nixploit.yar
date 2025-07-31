@@ -14,5 +14,5 @@ rule nixploitCC {
     condition:
         $a and $b and $c and
         math.entropy(0, filesize) > 7 and
-        math.entropy(0, filesize) < 7.2
+        math.entropy(0, filesize) < 7.5
 }
