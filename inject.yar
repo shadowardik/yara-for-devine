@@ -23,5 +23,5 @@ rule possible_injection {
 	    $s16 = "VirtualAllocEx" nocase ascii wide
    condition:
       uint16(0) == 0x5a4d and
-      2 of ($s*)
+      4 of ($s*)
 }
