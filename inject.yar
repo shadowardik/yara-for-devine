@@ -22,6 +22,7 @@ rule possible_injection {
 	    $s15 = "SuspendThread" nocase ascii wide
 	    $s16 = "VirtualAllocEx" nocase ascii wide
    condition:
+      math.entropy(0, filesize) > 7 and
       uint16(0) == 0x5a4d and
-      4 of ($s*)
+      2 of ($s*)
 }
