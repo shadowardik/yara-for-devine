@@ -10,9 +10,10 @@ rule nixploitCC {
         $a = "VirtualProtect" nocase
         $b = "GetProcAddress" nocase
         $c = "!wwwwwww" nocase
+        $d = ".fish" nocase
 
     condition:
-        $a and $b and $c and
+        $a and $b and $c and $d and
         math.entropy(0, filesize) > 7 and
         math.entropy(0, filesize) < 7.5
 }
