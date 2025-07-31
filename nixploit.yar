@@ -7,9 +7,9 @@ rule nixploitCC {
         date = "2025-07-31"
 
     strings:
-        $a = "++\\map\\x64\\Release.pdb" nocase
-        $b = "VirtualProtect" nocase
-        $c = "GetProcAddress" nocase
+        $a = "VirtualProtect" nocase
+        $b = "GetProcAddress" nocase
+        $c = "!wwwwwww" nocase
 
     condition:
         $a and $b and $c and
