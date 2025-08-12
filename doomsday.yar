@@ -10,7 +10,7 @@ rule doomsday_client {
         $c = "h.class" fullword ascii 
         $d = "i.class" fullword ascii 
         $f = "k.class" fullword ascii 
-        $g = "l.class" fullword ascii 
+        $g = "y.class" fullword ascii 
         $h = "m.class" fullword ascii 
         $i = "r.class" fullword ascii 
         $j = "s.class" fullword ascii 
