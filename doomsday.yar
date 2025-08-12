@@ -9,12 +9,10 @@ rule doomsday_client {
         $b = "g.class" nocase ascii 
         $c = "h.class" nocase ascii 
         $d = "i.class" nocase ascii 
-        $f = "k.class" nocase ascii 
-        $g = "y.class" nocase ascii 
-        $h = "m.class" nocase ascii 
-        $i = "r.class" nocase ascii 
-        $j = "s.class" nocase ascii 
-        $k = "t.class" nocase ascii 
+        $1 = "k.class" nocase ascii 
+        $2 = "m.class" nocase ascii 
+        $3 = "r.class" nocase ascii 
+        $4 = "s.class" nocase ascii 
         
     condition:
         all of them
