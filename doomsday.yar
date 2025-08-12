@@ -5,16 +5,16 @@ rule doomsday_client {
         date = "2025-08-12"
 
     strings:
-        $a = "f.class" fullword ascii 
-        $b = "g.class" fullword ascii 
-        $c = "h.class" fullword ascii 
-        $d = "i.class" fullword ascii 
-        $f = "k.class" fullword ascii 
-        $g = "y.class" fullword ascii 
-        $h = "m.class" fullword ascii 
-        $i = "r.class" fullword ascii 
-        $j = "s.class" fullword ascii 
-        $k = "t.class" fullword ascii 
+        $a = "f.class" nocase ascii 
+        $b = "g.class" nocase ascii 
+        $c = "h.class" nocase ascii 
+        $d = "i.class" nocase ascii 
+        $f = "k.class" nocase ascii 
+        $g = "y.class" nocase ascii 
+        $h = "m.class" nocase ascii 
+        $i = "r.class" nocase ascii 
+        $j = "s.class" nocase ascii 
+        $k = "t.class" nocase ascii 
         
     condition:
         all of them
